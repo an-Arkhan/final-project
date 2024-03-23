@@ -17,11 +17,12 @@ func main() {
 	}
 
 	r := gin.Default()
+	port := os.Getenv("PORT")
 
 	router.UserRouter(r)
 	router.PhotoRouter(r)
 	router.CommentRouter(r)
 	router.SocialMediaRouter(r)
 
-	r.Run(":" + os.Getenv("PORT"))
+	r.Run(":" + port)
 }
