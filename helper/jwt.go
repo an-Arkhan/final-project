@@ -2,13 +2,12 @@ package helper
 
 import (
 	"errors"
-	"log"
 	"os"
 	"strings"
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 )
 
 func GenerateToken(id uint, email string) string {
@@ -35,9 +34,9 @@ func VerifyToken(ctx *gin.Context) (interface{}, error) {
 
 	stringToken := strings.Split(headerToken, " ")[1]
 
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file: ", err)
-	}
+	// if err := godotenv.Load(); err != nil {
+	// 	log.Fatal("Error loading .env file: ", err)
+	// }
 
 	token, _ := jwt.Parse(stringToken, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
