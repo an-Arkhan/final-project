@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"log"
 	"os"
 
@@ -23,5 +23,5 @@ func main() {
 	router.CommentRouter(r)
 	router.SocialMediaRouter(r)
 
-	r.Run(fmt.Sprintf("%s:%s", os.Getenv("HOST"), os.Getenv("PORT")))
+	r.Run(":" + os.Getenv("PORT"))
 }
