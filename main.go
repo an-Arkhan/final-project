@@ -2,6 +2,7 @@ package main
 
 import (
 	// "fmt"
+	"fmt"
 	"log"
 	"os"
 
@@ -24,5 +25,6 @@ func main() {
 	router.CommentRouter(r)
 	router.SocialMediaRouter(r)
 
+	fmt.Println("Service running at port :" + port)
 	r.Run(":" + port)
 }

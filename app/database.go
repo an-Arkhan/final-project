@@ -7,16 +7,12 @@ import (
 
 	"final-project/model/domain"
 
-	"github.com/joho/godotenv"
+	// "github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 func NewDB() *gorm.DB {
-	if err := godotenv.Load(); err != nil {
-		log.Fatal(err)
-	}
-
 	host := os.Getenv("PGHOST")
 	user := os.Getenv("PGUSER")
 	password := os.Getenv("PGPASSWORD")
