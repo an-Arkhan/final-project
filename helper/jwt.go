@@ -19,10 +19,6 @@ func GenerateToken(id uint, email string) string {
 
 	parseToken := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
-	if err := godotenv.Load(); err != nil {
-		log.Fatal(err)
-	}
-
 	signedToken, _ := parseToken.SignedString([]byte(os.Getenv("KEY")))
 
 	return signedToken
